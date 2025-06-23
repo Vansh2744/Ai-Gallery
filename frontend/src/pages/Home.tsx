@@ -52,7 +52,7 @@ function Home() {
   const currentUser = async (token: string) => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/getCurrentUser/${token}`
+        `${BackendUrl}/getCurrentUser/${token}`
       );
       const id = res.data.id;
       setId(id);

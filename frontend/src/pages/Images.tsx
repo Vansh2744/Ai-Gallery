@@ -45,9 +45,7 @@ function Images() {
 
   const currentUser = async (token: string) => {
     try {
-      const res = await axios.get(
-        `http://localhost:8000/getCurrentUser/${token}`
-      );
+      const res = await axios.get(`${BackendUrl}/getCurrentUser/${token}`);
       const id = res.data.id;
       getImages(id);
     } catch (error) {

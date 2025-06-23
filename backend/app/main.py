@@ -15,7 +15,7 @@ ALGORITHM=os.getenv("ALGORITHM")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = "ai-gallery-frontend.vercel.app",
+    allow_origins = ["ai-gallery-frontend.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

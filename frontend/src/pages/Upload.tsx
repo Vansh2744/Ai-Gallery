@@ -1,3 +1,4 @@
+import { BackendUrl } from "@/lib/url";
 import axios from "axios";
 import { useEffect, useState, type ChangeEvent } from "react";
 
@@ -25,9 +26,7 @@ function Upload() {
 
   const currentUser = async (token: string) => {
     try {
-      const res = await axios.get(
-        `http://localhost:8000/getCurrentUser/${token}`
-      );
+      const res = await axios.get(`${BackendUrl}/${token}`);
       const id = res.data.id;
       setId(id);
     } catch (error) {
@@ -47,7 +46,7 @@ function Upload() {
     try {
       setLoading(true);
       const res = await axios.post(
-        `http://localhost:8000/upload-image/${id}`,
+        `${BackendUrl}/upload-image/${id}`,
         formData,
         {
           headers: {
