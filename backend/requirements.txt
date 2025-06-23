@@ -15,6 +15,7 @@ httpcore==1.0.9
 httpx==0.28.1
 idna==3.10
 imagekitio==4.1.0
+mangum==0.19.0
 passlib==1.7.4
 pillow==11.2.1
 pyasn1==0.6.1

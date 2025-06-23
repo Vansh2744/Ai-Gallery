@@ -3,10 +3,12 @@ from app.api.main import api_router
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
+from mangum import Mangum
 
 load_dotenv()
 
 app = FastAPI()
+handler = Mangum(app)
 
 SECRET_KEY=os.getenv("SECRET_KEY")
 ALGORITHM=os.getenv("ALGORITHM")
