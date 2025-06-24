@@ -79,7 +79,7 @@ function Images() {
     <div className="min-h-screen min-w-screen">
       <div className="flex items-center justify-evenly">
         <div className="p-10 w-full">
-          <Link href="/">
+          <Link to="/">
             <img src="/ai-gallery.jpg" className="w-13" />
             <span className="font-extrabold">AI Gallery</span>
           </Link>
