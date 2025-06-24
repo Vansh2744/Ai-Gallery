@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { BackendUrl } from "@/lib/url";
 import toast, { Toaster } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signin() {
   const navigate = useNavigate();
@@ -56,9 +56,9 @@ function Signin() {
           <CardHeader>
             <CardTitle className="my-5">Login to your account</CardTitle>
             <CardAction>
-              <a href="/signup" className="text-orange-600">
+              <Link to="/signup" className="text-orange-600">
                 Sign Up
-              </a>
+              </Link>
             </CardAction>
           </CardHeader>
           <CardContent>
