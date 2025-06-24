@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BackendUrl } from "@/lib/url";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { Image } from "@imagekit/react";
 
@@ -70,19 +70,19 @@ function Home() {
     <div className="min-h-screen px-10 py-10">
       <Toaster />
       <div className="flex justify-between w-full">
-        <a href="/" className="w-full">
+        <Link to="/" className="w-full">
           <img src="/ai-gallery.jpg" className="w-13" />
           <span className="font-extrabold">AI Gallery</span>
-        </a>
+        </Link>
         <h1 className="w-full text-center mb-10 text-4xl font-extrabold sm:visible sm:block hidden">
           Generate Image
         </h1>
         <div className="flex gap-3">
-          <a href="/images">
+          <Link to="/images">
             <Button className="bg-cyan-600 hover:bg-cyan-500 hover:cursor-pointer">
               Gallery
             </Button>
-          </a>
+          </Link>
           <Button
             className="bg-red-600 hover:bg-red-500 hover:cursor-pointer"
             onClick={handleLogout}
