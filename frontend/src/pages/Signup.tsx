@@ -60,7 +60,7 @@ function Signup() {
           <CardHeader>
             <CardTitle className="my-5">Register your account</CardTitle>
             <CardAction>
-              <Link href="/signin" className="text-orange-600">
+              <Link to="/signin" className="text-orange-600">
                 Sign In
               </Link>
             </CardAction>
