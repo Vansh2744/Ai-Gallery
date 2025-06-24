@@ -1,7 +1,7 @@
 import { BackendUrl } from "@/lib/url";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Image } from "@imagekit/react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
@@ -79,10 +79,10 @@ function Images() {
     <div className="min-h-screen min-w-screen">
       <div className="flex items-center justify-evenly">
         <div className="p-10 w-full">
-          <a href="/">
+          <Link href="/">
             <img src="/ai-gallery.jpg" className="w-13" />
             <span className="font-extrabold">AI Gallery</span>
-          </a>
+          </Link>
         </div>
         <div className="flex items-center justify-center w-full">
           <span className="font-extrabold text-xl sm:text-3xl">
