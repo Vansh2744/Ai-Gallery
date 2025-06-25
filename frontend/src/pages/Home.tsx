@@ -43,9 +43,11 @@ function Home() {
         id,
         content,
       });
-      if (res.data.message.toLowerCase() == "credit over") {
+      if(res.data.message){
+        if (res.data.message.toLowerCase() == "credit over") {
         setBilling(true);
         return;
+      }
       }
       setImage(res.data.url);
     } catch (error) {
