@@ -6,12 +6,14 @@ import { BackendUrl } from "@/lib/url";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { Image } from "@imagekit/react";
+import Payment from "./Payment";
 
 function Home() {
   const [content, setContent] = useState("");
   const [id, setId] = useState(null);
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState("");
+  const [isBilling, setBilling] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,6 +43,10 @@ function Home() {
         id,
         content,
       });
+      if (res.data.message.toLowerCase() == "credit over") {
+        setBilling(true);
+        return;
+      }
       setImage(res.data.url);
     } catch (error) {
       console.error(error);
@@ -51,9 +57,7 @@ function Home() {
 
   const currentUser = async (token: string) => {
     try {
-      const res = await axios.get(
-        `${BackendUrl}/getCurrentUser/${token}`
-      );
+      const res = await axios.get(`${BackendUrl}/getCurrentUser/${token}`);
       const id = res.data.id;
       setId(id);
     } catch (error) {
@@ -117,6 +121,7 @@ function Home() {
             />
           )}
         </div>
+        <div>{isBilling && <Payment />}</div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-from sqlalchemy import String, Integer, Column, ForeignKey
+from sqlalchemy import String, Integer, Column, ForeignKey, Boolean
 from app.utils.db import Base
 from sqlalchemy.orm import relationship
 
@@ -11,6 +11,8 @@ class User(Base):
     password = Column(String)
 
     images = relationship("ImageModel", back_populates="owner")
+
+    isValidToGenerateImage = Column(Boolean, default=True)
 
 class ImageModel(Base):
     __tablename__ = "images"

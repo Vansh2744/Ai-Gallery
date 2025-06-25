@@ -1,4 +1,4 @@
-from app.utils.models import ImageModel
+from app.utils.models import ImageModel, User
 from app.utils.schemas import GenerateContent
 from app.utils.db import SessionLocal, engine, Base
 from fastapi import APIRouter, HTTPException, Depends
@@ -39,6 +39,19 @@ client = genai.Client(api_key=ai_api_key)
 
 @router.post("/generate-image")
 async def upload_image(contents:GenerateContent,db:Session=Depends(get_db)):
+ user = db.query(User).filter(contents.id == User.id).first()
+ print(user)
+ 
+ if not user.isValidToGenerateImage:
+    return {
+       "message":"Credit Over"
+    }
+
+ 
+ user.isValidToGenerateImage = False
+ db.commit()
+ db.refresh(user)
+ 
  response = client.models.generate_content(
     model="gemini-2.0-flash-preview-image-generation",
     contents=(contents.content),
